@@ -47,7 +47,7 @@ oSolarBeam = Move("Solar Beam", "Grass", 18, 27)
 # List of moves
 lMoveList = [oTackle, oQuickAttack, oSlash, oFlamethrower, oEmber, oWaterGun, oHydroPump, oVineWhip, oSolarBeam]
 
-# Loop (fixed method calls only)
+# Loop 
 for moves in range(0, 3):
     iLength = len(lMoveList)
     iMoveNum = random.randrange(0, iLength)
@@ -61,20 +61,23 @@ for moves in range(0, 3):
 
 
 # Pokemon class
-class Pokemon() :
-    def __init__(self, name, elemental_type, hit_points,) :
+class Pokemon():
+    def __init__(self, name, elemental_type, hit_points):
         self.name = name
         self.elemental_type = elemental_type
         self.hit_points = hit_points
-        #added moves atttribute to assign to pokemon so I contributed
+        #Extra
         self.moves = []
 
-    def get_info(self) :
+    def get_info(self):
         return f"{self.name} - Type: {self.elemental_type} - Hit Points: {self.hit_points}"
 
-    def heal(self) :
+    def heal(self):
         self.hit_points += 15
         print(f"{self.name} has been healed to {self.hit_points} hit points.")
+    #Extra practice
+    def add_move(self, move):  
+        self.moves.append(move)
     
 
 
@@ -86,7 +89,7 @@ oBulbasaur = Pokemon("Bulbasaur", "Grass", 60)
 oCharmander = Pokemon("Charmander", "Fire", 55)
 oSquirtle = Pokemon("Squirtle", "Water", 65)
 
-#Add specific moves to pokemon:
+#Add specific moves to pokemon(extra):
 oBulbasaur.add_move(oTackle)
 oBulbasaur.add_move(oVineWhip)
 oBulbasaur.add_move(oSolarBeam)
@@ -113,4 +116,5 @@ lPokemonList = [oBulbasaur, oCharmander, oSquirtle]
 # Loop through Pokemon
 for pokemon in lPokemonList:
     print(pokemon.get_info())
+    #This was so I contributed..
     print("  Moves:", [move.move_name for move in pokemon.moves])
